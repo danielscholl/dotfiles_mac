@@ -1,0 +1,18 @@
+{
+	"color_scheme": "Packages/Neon Color Scheme/Neon.tmTheme",
+	"default_line_ending": "unix",
+	"draw_white_space": "all",
+	"ensure_newline_at_eof_on_save": true,
+	"fallback_encoding": "UTF-8",
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"rulers":
+	[
+		80
+	],
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
+}
