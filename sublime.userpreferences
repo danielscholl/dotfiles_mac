@@ -1,13 +1,18 @@
 {
+	" line_padding_top": 1,
+	"bold_folder_labels": true,
 	"color_scheme": "Packages/Neon Color Scheme/Neon.tmTheme",
 	"default_line_ending": "unix",
 	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
 	"fallback_encoding": "UTF-8",
+	"font_size": 16,
+	"highlight_line": true,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
+	"line_padding_bottom": 1,
 	"rulers":
 	[
 		80
@@ -16,3 +21,4 @@
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
+
