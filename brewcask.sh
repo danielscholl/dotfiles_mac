@@ -16,7 +16,9 @@ brew cask install filezilla
 brew cask install kaleidoscope
 brew cask install iterm2
 brew cask install sourcetree
+brew cask install vagrant
 brew cask install virtualbox
+brew cask install vmware-fusion
 brew cask install webstorm
  
 # other
