@@ -14,6 +14,7 @@ brew cask install google-chrome-canary
 brew cask install sublime-text3
 brew cask install filezilla
 brew cask install kaleidoscope
+brew cask install beyond-compare
 brew cask install iterm2
 brew cask install sourcetree
 brew cask install vagrant
