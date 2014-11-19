@@ -8,4 +8,3 @@ npm install -g less
 npm install -g mocha
 npm install -g karma-cli
 npm install -g yo
-npm install -g compass
