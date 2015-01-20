@@ -1,6 +1,7 @@
 npm install -g bower
 npm install -g coffee-script
 npm install -g cordova
+npm install -g ios-deploy
 npm install -g generator-angular
 npm install -g generator-angular-fullstack
 npm install -g generator-karma
