@@ -17,3 +17,6 @@ npm install -g mocha
 npm install -g node-static
 npm install -g nodemon
 npm install -g yo
+npm install -g azure-cli
+npm install -g bkts
+npm install -g protractor
