@@ -35,3 +35,4 @@ brew cask install macdown
 brew cask install evernote
 brew cask install slack
 brew cask install expandrive
+brew cask install caffeine
