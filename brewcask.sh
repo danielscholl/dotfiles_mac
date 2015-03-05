@@ -6,9 +6,9 @@ brew install brew-cask
 brew tap caskroom/versions
  
 # browser
-brew cask install firefox
-brew cask install google-chrome
-brew cask install google-chrome-canary
+#brew cask install firefox
+#brew cask install google-chrome
+#brew cask install google-chrome-canary
  
 # development
 brew cask install sublime-text3
@@ -32,3 +32,4 @@ brew cask install skype
 brew cask install spotify
 brew cask install dash 
 brew cask install macdown
+brew cask install evernote
