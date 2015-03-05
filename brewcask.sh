@@ -19,7 +19,7 @@ brew cask install iterm2
 brew cask install sourcetree
 brew cask install vagrant
 brew cask install virtualbox
-brew cask install vmware-fusion
+#brew cask install vmware-fusion
 brew cask install webstorm
 brew cask install git-flow
  
