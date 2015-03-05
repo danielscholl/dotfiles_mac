@@ -33,3 +33,4 @@ brew cask install spotify
 brew cask install dash 
 brew cask install macdown
 brew cask install evernote
+brew cask install slack
