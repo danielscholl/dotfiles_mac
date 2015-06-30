@@ -20,3 +20,6 @@ export MANPAGER="less -X";
 
 # Always enable colored `grep` output
 export GREP_OPTIONS="--color=auto";
+
+# Add Ruby Version Manager to path
+export PATH="$PATH:$HOME/.rvm/bin";
