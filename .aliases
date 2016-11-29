@@ -103,9 +103,6 @@ alias dps='docker ps -a'
 alias dclean='docker rm -v $(docker ps -a -q -f status=exited)'
 alias rmc='docker ps -q -a | xargs docker rm -f'
 alias rmi='docker images -q | xargs docker rmi -f'
-function dm-use() {
-  eval $(docker-machine env $1)
-}
 alias d='docker $@'
 
 alias registry-stop='docker rm -f registry'
