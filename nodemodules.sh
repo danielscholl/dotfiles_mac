@@ -10,3 +10,4 @@ npm install -g nodemon
 npm install -g azure-cli
 npm install -g protractor
 npm install -g karma-cli
+npm install -g avn avn-nvm avn-n
