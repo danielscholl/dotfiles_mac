@@ -21,5 +21,5 @@ export MANPAGER="less -X";
 # Always enable colored `grep` output
 export GREP_OPTIONS="--color=auto";
 
-# Add Ruby Version Manager to path
-export PATH="$PATH:$HOME/.rvm/bin";
+# Allow Node Unsecure Certs
+export NODE_TLS_REJECT_UNAUTHORIZED=0
