@@ -1,10 +1,3 @@
-# Easier navigation: .., ..., ...., ....., ~ and -
-#alias ..="cd .."
-#alias ...="cd ../.."
-#alias ....="cd ../../.."
-#alias .....="cd ../../../.."
-#alias ~="cd ~" # `cd` is probably faster to type though
-#alias -- -="cd -"
 
 # Shortcuts
 alias d="cd ~/Documents/Dropbox"
@@ -13,9 +6,7 @@ alias dt="cd ~/Desktop"
 alias g="git"
 alias h="history"
 alias j="jobs"
-alias githubEC="cd ~/Source/githubEC"
 alias github="cd ~/Source/github"
-alias g3="cd ~/source/githubEC/CMSG3"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -40,11 +31,6 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-# Get week number
-alias week='date +%V'
-
-# Stopwatch
-alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
@@ -73,14 +59,6 @@ command -v md5sum > /dev/null || alias md5sum="md5"
 # OS X has no `sha1sum`, so use `shasum` as a fallback
 command -v sha1sum > /dev/null || alias sha1sum="shasum"
 
-# JavaScriptCore REPL
-jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";
-[ -e "${jscbin}" ] && alias jsc="${jscbin}";
-unset jscbin;
-
-# Trim new lines and copy to clipboard
-alias c="tr -d '\n' | pbcopy"
-
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
@@ -99,26 +77,7 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-# Merge PDF files
-# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
-alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 
-# Disable Spotlight
-alias spotoff="sudo mdutil -a -i off"
-# Enable Spotlight
-alias spoton="sudo mdutil -a -i on"
-
-# PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
-alias plistbuddy="/usr/libexec/PlistBuddy"
-
-# Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
-# (useful when executing time-consuming commands)
-alias badge="tput bel"
-
-# Intuitive map function
-# For example, to list all directories that contain a certain file:
-# find . -name .gitattributes | map dirname
-alias map="xargs -n1"
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
@@ -127,10 +86,6 @@ done
 
 # Make Grunt print stack traces by default
 command -v grunt > /dev/null && alias grunt="grunt --stack"
-
-# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
-alias stfu="osascript -e 'set volume output muted true'"
-alias pumpitup="osascript -e 'set volume 7'"
 
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
@@ -141,3 +96,41 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+#DOCKER
+alias dpst='watch -n 3 "docker ps"'
+alias dps='docker ps -a'
+alias dclean='docker rm -v $(docker ps -a -q -f status=exited)'
+alias rmc='docker ps -q -a | xargs docker rm -f'
+alias rmi='docker images -q | xargs docker rmi -f'
+function dm-use() {
+  eval $(docker-machine env $1)
+}
+alias d='docker $@'
+
+alias registry-stop='docker rm -f registry'
+alias registry-web='docker run -d -p 8000:80 --name registry-web --link registry -e ENV_DOCKER_REGISTRY_HOST=registry -e ENV_DOCKER_REGISTRY_PORT=5000 konradkleine/docker-registry-frontend:v2'
+
+#MONGO
+alias mongo-start="docker run -it -d -p 27017:27017 --name mongo mongo mongod --rest --httpinterface --smallfiles"
+alias mongo-admin="docker run -d --link mongo:mongo -p 8081:8081 mongo-express"
+alias mongo-stop="docker rm -f mongo"
+alias mongodb="docker logs -f mongo"
+alias mongo-cli="docker exec -it mongo mongo"
+
+#CASSANDRA
+alias cassandra-start="docker run -d -p 9042:9042 --name cassandra cassandra:3.3"
+alias cassandra-stop="docker rm -f cassandra"
+alias cassandra-cli="docker run -it --link cassandra:cassandra --rm cassandra:3.3 sh -c 'exec cqlsh cassandra'"
+
+#REDIS
+alias redis-start="docker run -d -p 6379:6379 --name redis redis"
+alias redis-stop="docker rm -f redis"
+alias redis-cli="docker run -it --rm --link redis:redis redis bash -c 'redis-cli -h redis'"
+
+#POSTGRES
+alias psql-start="docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=password -d postgres"
+alias psqlv8-start="docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD=password -d postgres-plv8"
+alias psql-stop="docker rm -f postgres"
+alias psql-createdb="PGPASSWORD=password createdb -h docker -p 5432 -U postgres -w $@"
+alias psql-cli="PGPASSWORD=password psql -h docker -p 5432 -U postgres -w $@"
