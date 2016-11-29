@@ -44,6 +44,7 @@ brew install homebrew/dupes/screen
 # Install other useful binaries.
 brew install git-flow
 brew install tree
+brew install direnv
 
 
 # Install mackup
