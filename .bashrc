@@ -4,4 +4,4 @@
 [[ -s "$HOME/.dvm/dvm.sh" ]] && source "$HOME/.dvm/dvm.sh" # load dvm
 
 # Dir Env
-eval "$(direnv hook bash)"
+#eval "$(direnv hook bash)"
