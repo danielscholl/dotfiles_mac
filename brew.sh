@@ -48,7 +48,7 @@ brew install direnv
 
 
 # Install mackup
-brew install mackup
+#brew install mackup
 
 
 # Remove outdated versions from the cellar.
