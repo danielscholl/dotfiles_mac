@@ -50,6 +50,11 @@ brew install direnv
 # Install mackup
 #brew install mackup
 
+# Install FontCustom
+brew install fontforge --with-python
+brew install eot-utils
+
+
 
 # Remove outdated versions from the cellar.
 brew cleanup
