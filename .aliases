@@ -131,3 +131,18 @@ alias psqlv8-start="docker run -p 5432:5432 --name postgres -e POSTGRES_PASSWORD
 alias psql-stop="docker rm -f postgres"
 alias psql-createdb="PGPASSWORD=password createdb -h docker -p 5432 -U postgres -w $@"
 alias psql-cli="PGPASSWORD=password psql -h docker -p 5432 -U postgres -w $@"
+
+# AZURE
+alias azure-mount="mount_smbfs //$AZURE_STORAGE_USER@$AZURE_STORAGE_ACCOUNT.file.core.windows.net/dotnet /mnt"
+alias azure-ip="az vm list-ip-addresses -o table"
+alias azure-serviceprincipaL="az ad user show --upn $(az account show --query user.name -otsv) --query objectId -otsv"
+alias azure-linux="az vm create --resource-group linux --name linux-vm --image UbuntuLTS --generate-ssh-keys"
+
+# VSTS AGENT
+alias create-agent="docker run --name vsts-agent -e VSTS_ACCOUNT=$VSTS_ACCOUNT -e VSTS_TOKEN=$VSTS_TOKEN -e VSTS_WORK=/var/vsts -v /var/vsts:/var/vsts -v /var/run/docker.sock:/var/run/docker.sock -d microsoft/vsts-agent:ubuntu-16.04-docker-17.12.0-ce-standard"
+alias start-agent="docker start vsts-agent"
+alias stop-agent="docker stop vsts-agent"
+alias delete-agent="docker rm -f vsts-agent"
+
+# AZURE FUNCTION APP
+alias df-setup="source /usr/local/bin/func_setup.sh"
